@@ -230,49 +230,29 @@ body {
 }
 
 @media (max-width: 600px) {
-    /* Stack logo and nav vertically */
+    /* Stack logo + nav vertically */
     .nav-container {
-        flex-direction: column;
-        align-items: center;   /* center everything */
-        gap: 1rem;             /* space between logo and links */
+        flex-direction: column; /* logo on top, nav below */
+        align-items: center;    /* center logo & nav */
+        gap: 0.5rem;
     }
 
-    /* Make nav take full width so links appear below logo */
-    nav {
+    /* Make nav block full width under logo */
+    .nav-block {
         width: 100%;
     }
 
-    /* Keep links horizontal and spaced */
+    /* Make links horizontal and centered */
     .nav-links {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;      /* wrap if needed */
-        gap: 1rem;
+        flex-direction: row;      /* horizontal links */
+        justify-content: center;  /* center links */
+        flex-wrap: wrap;          /* wrap if screen is too small */
+        gap: 0.8rem;              /* spacing between links */
         margin: 0;
         width: auto;
     }
-
-    /* Other mobile rules remain */
-    .service-grid,
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .circle-wrapper {
-        width: 260px;
-        height: 260px;
-    }
-
-    .circle-track {
-        width: 260px;
-        height: 260px;
-    }
-
-    .circle-wrapper img {
-        width: 200px;
-        height: 200px;
-    }
 }
+
 
 
 
