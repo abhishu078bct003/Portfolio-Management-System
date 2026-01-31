@@ -132,8 +132,8 @@ body {
 }
 
 .circle-wrapper img {
-    width: 335px;
-    height: 335px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
     z-index: 2;
@@ -252,6 +252,7 @@ body {
         width: auto;
     }
 }
+
 
 
 
