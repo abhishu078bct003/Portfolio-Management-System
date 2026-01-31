@@ -230,14 +230,23 @@ body {
 }
 
 @media (max-width: 600px) {
-    .nav-links {
-        flex-direction: row;  /* horizontal */
-        flex-wrap: wrap;      /* allow wrapping if needed */
-        justify-content: center; /* center horizontally */
-        gap: 1rem;            /* space between links */
+    /* Make nav-container stack logo + links vertically */
+    .nav-container {
+        flex-direction: column;
+        align-items: center; /* center logo + links */
+        gap: 1rem;           /* space between logo and links */
     }
 
-    /* keep other existing mobile rules */
+    /* Keep nav links horizontal */
+    .nav-links {
+        flex-direction: row;  /* horizontal links */
+        flex-wrap: wrap;      /* wrap if too narrow */
+        justify-content: center;
+        gap: 1rem;            /* spacing between links */
+        margin: 0;            /* remove default margins */
+    }
+
+    /* Keep other existing mobile rules */
     .service-grid,
     .portfolio-grid {
         grid-template-columns: 1fr;
@@ -258,4 +267,5 @@ body {
         height: 200px;
     }
 }
+
 
