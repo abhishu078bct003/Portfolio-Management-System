@@ -230,23 +230,29 @@ body {
 }
 
 @media (max-width: 600px) {
-    /* Make nav-container stack logo + links vertically */
+    /* Stack logo and nav vertically */
     .nav-container {
         flex-direction: column;
-        align-items: center; /* center logo + links */
-        gap: 1rem;           /* space between logo and links */
+        align-items: center;   /* center everything */
+        gap: 1rem;             /* space between logo and links */
     }
 
-    /* Keep nav links horizontal */
+    /* Make nav take full width so links appear below logo */
+    nav {
+        width: 100%;
+    }
+
+    /* Keep links horizontal and spaced */
     .nav-links {
-        flex-direction: row;  /* horizontal links */
-        flex-wrap: wrap;      /* wrap if too narrow */
+        flex-direction: row;
         justify-content: center;
-        gap: 1rem;            /* spacing between links */
-        margin: 0;            /* remove default margins */
+        flex-wrap: wrap;      /* wrap if needed */
+        gap: 1rem;
+        margin: 0;
+        width: auto;
     }
 
-    /* Keep other existing mobile rules */
+    /* Other mobile rules remain */
     .service-grid,
     .portfolio-grid {
         grid-template-columns: 1fr;
@@ -267,5 +273,6 @@ body {
         height: 200px;
     }
 }
+
 
 
