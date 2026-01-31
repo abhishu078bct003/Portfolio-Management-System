@@ -87,17 +87,41 @@ body {
     text-decoration: none;
     color: #000;
     font-weight: bold;
+    transition: 0.3s ease;
 }
 
+.btn:hover {
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+    transform: translateY(-2px);
+    transition: 0.3s ease;
+}
+
+/* ===== SOCIAL ICONS ===== */
+
+.socials {
+    display: flex;
+    gap: 0.8rem;
+}
 .socials a {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid #22c55e;
     color: #22c55e;
-    padding: 0.6rem;
     border-radius: 50%;
     text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.3s ease;
 }
 
-/* ===== PROFILE + ORBIT ANIMATION (FIXED) ===== */
+.socials a:hover {
+    background: #22c55e;
+    color: #000;
+}
+
+/* ===== PROFILE IMAGE ===== */
 .circle-wrapper {
     position: relative;
     width: 340px;
@@ -115,36 +139,12 @@ body {
     z-index: 2;
 }
 
-/* Static circle */
 .circle-track {
     position: absolute;
     width: 340px;
     height: 340px;
     border-radius: 50%;
-    border: 2px solid #22c55e /*rgba(0, 0, 0, 0); */
-}
-
-.circle-arc {
-    position: absolute;
-    width: 340px;
-    height: 340px;
-    border-radius: 75%;
-    border-top: 5px solid #22c55e;
-    border-right: 1px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 1px solid transparent;
-    animation: orbit 0.5s linear infinite;
-}
-
-/* Target the second arc specifically */
-.circle-wrapper .circle-arc:nth-of-type(2) {
-    animation-delay: -0.25s; /* half of animation */
-}
-
-
-@keyframes orbit {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    border: 3px solid #22c55e;
 }
 
 /* ===== SECTIONS ===== */
@@ -186,6 +186,28 @@ body {
     padding: 2rem;
     border-radius: 10px;
 }
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(34, 197, 94, 0.25);
+}
+
+.project-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+}
+
+.project-card-link i {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    color: #22c55e;
+}
 
 /* ===== FOOTER ===== */
 .footer {
@@ -222,8 +244,7 @@ body {
         height: 260px;
     }
 
-    .circle-track,
-    .circle-arc {
+    .circle-track {
         width: 260px;
         height: 260px;
     }
