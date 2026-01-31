@@ -220,16 +220,8 @@ body {
 }
 
 /* ===== MEDIA QUERIES ===== */
-/* Tablets and mobile: ≤ 900px → force single column grids */
+/* Tablets and mobile: hero adjustments */
 @media (max-width: 900px) {
-    .service-grid,
-    .portfolio-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important; /* one column only */
-        gap: 1.5rem !important;               /* spacing between rows */
-    }
-
-    /* Also adjust hero container for mobile/tablet */
     .hero-container {
         flex-direction: column;
         text-align: center;
@@ -237,8 +229,7 @@ body {
     }
 }
 
-
-/* Mobile: same, just smaller profile */
+/* Mobile: ≤600px adjustments */
 @media (max-width: 600px) {
     .nav-container {
         flex-direction: column;
@@ -259,9 +250,11 @@ body {
         width: auto;
     }
 
+    /* Force single-column for Services and Portfolio on mobile */
     .service-grid,
     .portfolio-grid {
-        grid-template-columns: 1fr; /* single column */
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
     }
 
     .circle-wrapper {
