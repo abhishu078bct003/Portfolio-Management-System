@@ -43,9 +43,16 @@ body {
     text-decoration: none;
 }
 
-.nav-links .active {
-    color: #22c55e;
+.nav-links a {
+    color: #fff; /* default white */
+    text-decoration: none;
+    transition: color 0.3s ease; /* smooth hover */
 }
+
+.nav-links a:hover {
+    color: #22c55e; /* green on hover */
+}
+
 
 /* ===== HERO ===== */
 .hero {
