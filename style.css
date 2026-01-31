@@ -221,18 +221,26 @@ body {
 
 /* ===== MEDIA QUERIES ===== */
 /* Tablets: two columns */
+/* ===== GRID LAYOUT RESPONSIVE ===== */
+
+/* Desktop: 3 columns by default (no change needed) */
+
+/* Tablet and mobile: ≤ 900px → single column */
 @media (max-width: 900px) {
+    .service-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* force one per row */
+        gap: 1.5rem;               /* optional spacing */
+    }
+
+    /* Also adjust hero container for mobile/tablet */
     .hero-container {
         flex-direction: column;
         text-align: center;
         gap: 3rem;
     }
-
-    .service-grid,
-    .portfolio-grid {
-        grid-template-columns: 1fr; /* single column for consistency */
-    }
 }
+
 
 /* Mobile: same, just smaller profile */
 @media (max-width: 600px) {
