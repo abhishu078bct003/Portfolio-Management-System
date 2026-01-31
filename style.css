@@ -231,9 +231,13 @@ body {
 
 @media (max-width: 600px) {
     .nav-links {
-        flex-direction: column;
+        flex-direction: row;  /* horizontal */
+        flex-wrap: wrap;      /* allow wrapping if needed */
+        justify-content: center; /* center horizontally */
+        gap: 1rem;            /* space between links */
     }
 
+    /* keep other existing mobile rules */
     .service-grid,
     .portfolio-grid {
         grid-template-columns: 1fr;
@@ -254,3 +258,4 @@ body {
         height: 200px;
     }
 }
+
