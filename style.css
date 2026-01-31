@@ -150,6 +150,24 @@ body {
     border-radius: 50%;
     border: 3px solid #22c55e;
 }
+.circle-middle {
+    position: absolute;
+    width: 335px;           /* default for desktop/laptop */
+    height: 335px;
+    border-radius: 50%;
+    background: #4b5563;    /* the color you want for the gap */
+    z-index: 1;             /* behind profile, above green circle */
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .circle-middle {
+        width: 255px;       /* scale down like the circle-track */
+        height: 255px;
+    }
+}
+
+
 
 /* ===== SECTIONS ===== */
 .section {
