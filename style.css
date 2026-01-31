@@ -220,6 +220,7 @@ body {
 }
 
 /* ===== MEDIA QUERIES ===== */
+/* Tablets: two columns */
 @media (max-width: 900px) {
     .hero-container {
         flex-direction: column;
@@ -229,31 +230,49 @@ body {
 
     .service-grid,
     .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr; /* single column for consistency */
     }
 }
 
+/* Mobile: same, just smaller profile */
 @media (max-width: 600px) {
-    /* Stack logo + nav vertically */
     .nav-container {
-        flex-direction: column; /* logo on top, nav below */
-        align-items: center;    /* center logo & nav */
+        flex-direction: column;
+        align-items: center;
         gap: 0.5rem;
     }
 
-    /* Make nav block full width under logo */
     .nav-block {
         width: 100%;
     }
 
-    /* Make links horizontal and centered */
     .nav-links {
-        flex-direction: row;      /* horizontal links */
-        justify-content: center;  /* center links */
-        flex-wrap: wrap;          /* wrap if screen is too small */
-        gap: 0.8rem;              /* spacing between links */
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
         margin: 0;
         width: auto;
+    }
+
+    .service-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* single column */
+    }
+
+    .circle-wrapper {
+        width: 260px;
+        height: 260px;
+    }
+
+    .circle-track {
+        width: 260px;
+        height: 260px;
+    }
+
+    .circle-wrapper img {
+        width: 200px;
+        height: 200px;
     }
 }
 
