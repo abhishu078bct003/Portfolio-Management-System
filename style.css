@@ -147,9 +147,18 @@ body {
     animation: rotateRing 24s linear infinite;
 }
 
-/* Glow only during flipping/touch */
-.circle-wrapper.flipping .circle-track {
-    box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
+/* Desktop hover glow */
+@media (min-width: 601px) {
+    .circle-wrapper:hover .circle-track {
+        box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
+    }
+}
+
+/* Mobile glow only during flipping/touch */
+@media (max-width: 600px) {
+    .circle-wrapper.flipping .circle-track {
+        box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
+    }
 }
 
 @keyframes floatProfile {
