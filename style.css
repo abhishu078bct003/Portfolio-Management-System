@@ -328,39 +328,33 @@ body {
         gap: 2rem !important;
     }
 
-    /* Mobile fix: profile circle */
+    /* ===== MOBILE PROFILE FIX ===== */
     .circle-wrapper {
         width: 260px !important;
         height: 260px !important;
     }
-
-    .profile-flip {
-    width: 85%;
-    height: 85%;
-}
-
-.profile-front,
-.profile-back {
-    width: 100%;
-    height: 100%;
-}
-
-.profile-front img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
 
     .circle-track {
         width: 100% !important;
         height: 100% !important;
     }
 
+    .profile-flip {
+        width: 85%;   /* smaller than surrounding circle */
+        height: 85%;  /* smaller than surrounding circle */
+        margin: auto; /* center inside circle */
+    }
+
+    .profile-front,
+    .profile-back {
+        width: 100%;
+        height: 100%;
+    }
+
     .profile-front img {
-        width: 100% !important;
-        height: 100% !important;
-        border-radius: 50% !important;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
         object-fit: cover;
     }
 }
