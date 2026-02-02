@@ -34,10 +34,16 @@ form.addEventListener("submit", (e) => {
 
 /* ===== PROFILE FLIP ===== */
 const profileFlip = document.querySelector(".profile-flip");
+const circleWrapper = document.querySelector(".circle-wrapper");
 
-// Toggle flip on any click/touch
+// Toggle flip and glow on any click/touch
 profileFlip.addEventListener("click", () => {
+    circleWrapper.classList.add("flipping"); // glow
     profileFlip.classList.toggle("flipped");
+
+    setTimeout(() => {
+        circleWrapper.classList.remove("flipping"); // remove glow after animation
+    }, 800);
 });
 
 // Remove flip on desktop hover leave only
