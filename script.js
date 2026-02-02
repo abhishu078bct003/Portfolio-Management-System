@@ -30,3 +30,13 @@ form.addEventListener("submit", (e) => {
         document.body.style.overflow = "auto";
     }, 1500);
 });
+const profileFlip = document.querySelector(".profile-flip");
+
+profileFlip.addEventListener("click", () => {
+    profileFlip.classList.toggle("flipped");
+});
+
+profileFlip.addEventListener("mouseleave", () => {
+    profileFlip.classList.remove("flipped");
+});
+
