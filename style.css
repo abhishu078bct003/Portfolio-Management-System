@@ -468,3 +468,44 @@ body {
 .profile-flip.flipped {
     transform: rotateY(180deg);
 }
+/* ===== GITHUB PAGES 3D FIX ===== */
+
+/* Create a stable 3D space */
+.circle-wrapper {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+/* Isolate flip from parent transforms */
+.profile-flip {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Prevent float animation from interfering while flipped */
+.profile-flip.flipped {
+    animation: none;
+}
+
+/* ===== MOBILE FIX: PROFILE CIRCLE ===== */
+@media (max-width: 600px) {
+    .circle-wrapper {
+        width: 260px !important;
+        height: 260px !important;
+    }
+
+    .profile-flip,
+    .profile-front,
+    .profile-back,
+    .circle-track {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .profile-front img {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 50% !important;
+        object-fit: cover;
+    }
+}
