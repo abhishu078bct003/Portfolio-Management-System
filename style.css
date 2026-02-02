@@ -147,7 +147,8 @@ body {
     animation: rotateRing 24s linear infinite;
 }
 
-.circle-wrapper:hover .circle-track {
+/* Glow only during flipping/touch */
+.circle-wrapper.flipping .circle-track {
     box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
 }
 
