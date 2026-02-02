@@ -35,20 +35,25 @@ form.addEventListener("submit", (e) => {
 /* ===== PROFILE FLIP ===== */
 const profileFlip = document.querySelector(".profile-flip");
 
-/* Toggle flip on click */
-profileFlip.addEventListener("click", (e) => {
+// Toggle flip on any click/touch
+profileFlip.addEventListener("click", () => {
     profileFlip.classList.toggle("flipped");
 });
 
-/* Remove flip on hover leave (desktop) */
+// Remove flip on desktop hover leave only
 profileFlip.addEventListener("mouseleave", () => {
-    // Only remove if not on mobile
     if (window.innerWidth > 600) {
         profileFlip.classList.remove("flipped");
     }
 });
 
-/* Optional: prevent swipe/scroll interference on mobile */
-profileFlip.addEventListener("touchstart", (e) => {
-    profileFlip.classList.toggle("flipped");
-});
+// Automatically unflip when profile scrolls out of view (mobile)
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting && profileFlip.classList.contains("flipped")) {
+            profileFlip.classList.remove("flipped");
+        }
+    });
+}, { threshold: 0.1 });
+
+observer.observe(profileFlip);
