@@ -36,11 +36,13 @@ form.addEventListener("submit", (e) => {
 const profileFlip = document.querySelector(".profile-flip");
 const circleWrapper = document.querySelector(".circle-wrapper");
 
-// Toggle flip and glow on click/touch
+// Toggle flip and glow on any click/touch
 profileFlip.addEventListener("click", () => {
-    if (window.innerWidth <= 600) { // mobile glow only
+    if (window.innerWidth <= 600) { // mobile only
         circleWrapper.classList.add("flipping");
-        setTimeout(() => circleWrapper.classList.remove("flipping"), 200);
+        setTimeout(() => {
+            circleWrapper.classList.remove("flipping");
+        }, 200); // glow duration 0.2s
     }
     profileFlip.classList.toggle("flipped");
 });
