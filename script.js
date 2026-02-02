@@ -43,7 +43,7 @@ profileFlip.addEventListener("click", () => {
 
     setTimeout(() => {
         circleWrapper.classList.remove("flipping"); // remove glow after animation
-    }, 800);
+    }, 200);
 });
 
 // Remove flip on desktop hover leave only
@@ -63,3 +63,4 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 observer.observe(profileFlip);
+
