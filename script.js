@@ -1,3 +1,4 @@
+/* ===== SERVICE MODAL ===== */
 const modal = document.getElementById("serviceModal");
 const modalTitle = document.getElementById("modalTitle");
 const closeModal = document.getElementById("closeModal");
@@ -30,13 +31,24 @@ form.addEventListener("submit", (e) => {
         document.body.style.overflow = "auto";
     }, 1500);
 });
+
+/* ===== PROFILE FLIP ===== */
 const profileFlip = document.querySelector(".profile-flip");
 
-profileFlip.addEventListener("click", () => {
+/* Toggle flip on click */
+profileFlip.addEventListener("click", (e) => {
     profileFlip.classList.toggle("flipped");
 });
 
+/* Remove flip on hover leave (desktop) */
 profileFlip.addEventListener("mouseleave", () => {
-    profileFlip.classList.remove("flipped");
+    // Only remove if not on mobile
+    if (window.innerWidth > 600) {
+        profileFlip.classList.remove("flipped");
+    }
 });
 
+/* Optional: prevent swipe/scroll interference on mobile */
+profileFlip.addEventListener("touchstart", (e) => {
+    profileFlip.classList.toggle("flipped");
+});
