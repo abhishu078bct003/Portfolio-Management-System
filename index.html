@@ -19,7 +19,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">Service</a></li>
                 <li><a href="#portfolio">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -66,10 +66,9 @@
         <!-- Image -->
         <div class="hero-image">
             <div class="circle-wrapper">
-              <div class="circle-track"></div> <!-- outer green circle -->
+              <div class="circle-track"></div>
               <img src="profile.jpeg" alt="Profile Photo">
             </div>
-
         </div>
 
     </div>
@@ -84,7 +83,6 @@
           My work focuses on computer vision, medical imaging, and multi-modal AI systems, where I combine data-driven approaches with practical problem-solving.
           I enjoy building end-to-end AI pipelines, from data preprocessing and model optimization to evaluation and real-world deployment.
        </p>
-
     </div>
 </section>
 
@@ -122,7 +120,6 @@
                <a href="https://github.com/abhishu078bct003" target="_blank" class="project-card-link">
                  <h3>Project One</h3>
                  <p>Skin Lesion Classification and Segmentation</p>
-                
                </a>
             </article>
 
@@ -130,7 +127,6 @@
                <a href="https://github.com/abhishu078bct003" target="_blank" class="project-card-link">
                  <h3>Project Two</h3>
                  <p>Multi-Modal AI System for Early Detection of Neurological Disorders</p>
-                
                </a>
             </article>
 
@@ -138,10 +134,8 @@
                <a href="https://github.com/abhishu078bct003" target="_blank" class="project-card-link">
                  <h3>Project Three</h3>
                  <p>Image Generation using Text</p>
-            
                </a>
             </article>
-
         </div>
     </div>
 </section>
@@ -161,7 +155,45 @@
     <p>© 2026 Abhishu Khanal | All Rights Reserved</p>
 </footer>
 
+<!-- ===== SERVICE MODAL ===== -->
+<div class="modal-overlay" id="serviceModal">
+    <div class="service-modal">
+        <span class="close-modal" id="closeModal">&times;</span>
+
+        <div class="modal-front">
+            <h2 id="modalTitle"></h2>
+
+            <p class="modal-desc">
+                Please describe your project requirements clearly.
+            </p>
+
+            <form id="serviceForm">
+                <label>Project Description</label>
+                <textarea placeholder="Describe your project..." required></textarea>
+
+                <label>Expected Budget (NRP)</label>
+                <input type="number" placeholder="Enter price" required>
+
+                <label>Time Limit (days)</label>
+                <input type="number" placeholder="Enter timeline" required>
+
+                <label>Additional Notes</label>
+                <textarea placeholder="Optional details"></textarea>
+
+                <div class="modal-buttons">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-back">
+            <h2>Project Submitted ✔</h2>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
-
-
