@@ -36,14 +36,13 @@ form.addEventListener("submit", (e) => {
 const profileFlip = document.querySelector(".profile-flip");
 const circleWrapper = document.querySelector(".circle-wrapper");
 
-// Toggle flip and glow on any click/touch
+// Toggle flip and glow on click/touch
 profileFlip.addEventListener("click", () => {
-    circleWrapper.classList.add("flipping"); // glow
+    if (window.innerWidth <= 600) { // mobile glow only
+        circleWrapper.classList.add("flipping");
+        setTimeout(() => circleWrapper.classList.remove("flipping"), 200);
+    }
     profileFlip.classList.toggle("flipped");
-
-    setTimeout(() => {
-        circleWrapper.classList.remove("flipping"); // remove glow after animation
-    }, 200);
 });
 
 // Remove flip on desktop hover leave only
@@ -63,4 +62,3 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 observer.observe(profileFlip);
-
