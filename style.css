@@ -1,4 +1,3 @@
-
 /* ===== GLOBAL ===== */
 * {
     margin: 0;
@@ -37,11 +36,6 @@ body {
     list-style: none;
     display: flex;
     gap: 2rem;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
 }
 
 .nav-links a {
@@ -139,14 +133,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.circle-wrapper img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    z-index: 2;
+    perspective: 1000px; /* 3D space for flipping */
+    transform-style: preserve-3d;
 }
 
 .circle-track {
@@ -155,6 +143,81 @@ body {
     height: 340px;
     border-radius: 50%;
     border: 3px solid #22c55e;
+    animation: rotateRing 24s linear infinite;
+}
+
+.circle-wrapper:hover .circle-track {
+    box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
+}
+
+/* Floating sway */
+.circle-wrapper {
+    animation: floatProfile 6s ease-in-out infinite;
+}
+
+@keyframes floatProfile {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotateRing {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== FLIP SYSTEM ===== */
+.profile-flip {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    cursor: pointer;
+    will-change: transform; /* Github Pages fix */
+}
+
+.profile-flip.flipped {
+    transform: rotateY(180deg);
+    animation: none; /* stop float when flipped */
+}
+
+.profile-front,
+.profile-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 50%;
+}
+
+/* Front image */
+.profile-front img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Back bio */
+.profile-back {
+    background: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    transform: rotateY(180deg);
+    text-align: center;
+    color: #22c55e;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.25);
 }
 
 /* ===== SECTIONS ===== */
@@ -202,9 +265,6 @@ body {
     background: #020617;
     padding: 2rem;
     border-radius: 10px;
-}
-
-.project-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
@@ -268,19 +328,25 @@ body {
         gap: 2rem !important;
     }
 
+    /* Mobile fix: profile circle */
     .circle-wrapper {
-        width: 260px;
-        height: 260px;
+        width: 260px !important;
+        height: 260px !important;
     }
 
+    .profile-flip,
+    .profile-front,
+    .profile-back,
     .circle-track {
-        width: 260px;
-        height: 260px;
+        width: 100% !important;
+        height: 100% !important;
     }
 
-    .circle-wrapper img {
-        width: 200px;
-        height: 200px;
+    .profile-front img {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 50% !important;
+        object-fit: cover;
     }
 }
 
@@ -374,6 +440,7 @@ body {
 .service-modal.flipped {
     transform: rotateY(180deg);
 }
+
 /* ===== MODAL BUTTON HOVER EFFECTS ===== */
 .modal-buttons button {
     transition: 0.3s ease;
@@ -387,125 +454,4 @@ body {
 .modal-buttons button[type="reset"]:hover {
     box-shadow: 0 0 12px rgba(156, 163, 175, 0.6);
     transform: translateY(-2px);
-}
-/* ===== PROFILE MOTION & INTERACTION ===== */
-
-/* Floating sway */
-.circle-wrapper {
-    animation: floatProfile 6s ease-in-out infinite;
-}
-
-@keyframes floatProfile {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* Rotating outer ring */
-.circle-track {
-    animation: rotateRing 24s linear infinite;
-}
-
-@keyframes rotateRing {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Hover glow */
-.circle-wrapper:hover .circle-track {
-    box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
-}
-
-/* ===== FLIP SYSTEM ===== */
-.profile-flip {
-    width: 300px;
-    height: 300px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.8s ease;
-    cursor: pointer;
-}
-
-.profile-front,
-.profile-back {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    border-radius: 50%;
-}
-
-/* Front image */
-.profile-front img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* Back bio */
-.profile-back {
-    background: #020617;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    transform: rotateY(180deg);
-    text-align: center;
-    color: #22c55e;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.25);
-}
-
-/* Flip active */
-.profile-flip.flipped {
-    transform: rotateY(180deg);
-}
-/* ===== GITHUB PAGES 3D FIX ===== */
-
-/* Create a stable 3D space */
-.circle-wrapper {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-}
-
-/* Isolate flip from parent transforms */
-.profile-flip {
-    transform-style: preserve-3d;
-    will-change: transform;
-}
-
-/* Prevent float animation from interfering while flipped */
-.profile-flip.flipped {
-    animation: none;
-}
-
-/* ===== MOBILE FIX: PROFILE CIRCLE ===== */
-@media (max-width: 600px) {
-    .circle-wrapper {
-        width: 260px !important;
-        height: 260px !important;
-    }
-
-    .profile-flip,
-    .profile-front,
-    .profile-back,
-    .circle-track {
-        width: 100% !important;
-        height: 100% !important;
-    }
-
-    .profile-front img {
-        width: 100% !important;
-        height: 100% !important;
-        border-radius: 50% !important;
-        object-fit: cover;
-    }
 }
